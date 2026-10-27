@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>University Document Sharing Platform — Login</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 520px; margin: 4rem auto; padding: 1.5rem; }
+    main { border: 1px solid #ddd; border-radius: 12px; padding: 2rem; }
+    label { display: block; margin-top: 1rem; }
+    input { box-sizing: border-box; width: 100%; padding: .7rem; margin-top: .35rem; }
+    button { margin-top: 1.25rem; padding: .7rem 1.2rem; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>University Document Sharing Platform</h1>
+    <p>Sign in to access shared academic documents.</p>
+    <form id="login-form">
+      <label for="email">University Email</label>
+      <input id="email" name="email" type="email" autocomplete="username" required>
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" autocomplete="current-password" required>
+      <button type="submit">Sign in</button>
+      <p id="message" aria-live="polite"></p>
+    </form>
+  </main>
+  <script>
+    document.getElementById('login-form').addEventListener('submit', function (event) {
+      event.preventDefault();
+      document.getElementById('message').textContent =
+        'Demo form only — authentication is not connected.';
+    });
+  </script>
+</body>
+</html>

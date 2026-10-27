@@ -1,0 +1,53 @@
+$ git add .
+$ git commit -m Initial project files
+[main (root-commit) 8c242bb] Initial project files
+ 2 files changed, 2 insertions(+)
+ create mode 100644 README.md
+ create mode 100644 login.html
+$ git checkout -b feature/login-page
+Switched to a new branch 'feature/login-page'
+$ git add login.html
+$ git commit -m Add login page skeleton
+[feature/login-page 51b7f95] Add login page skeleton
+ 1 file changed, 1 insertion(+)
+$ git checkout main
+Switched to branch 'main'
+$ git checkout -b feature/login-validation
+Switched to a new branch 'feature/login-validation'
+$ git add login.html
+$ git commit -m Update login heading for validation branch
+[feature/login-validation a5b1cf0] Update login heading for validation branch
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+$ git checkout main
+Switched to branch 'main'
+$ git merge --no-ff feature/login-page -m Merge feature/login-page
+Merge made by the 'ort' strategy.
+ login.html | 1 +
+ 1 file changed, 1 insertion(+)
+$ git merge --no-ff feature/login-validation -m Merge feature/login-validation
+Auto-merging login.html
+CONFLICT (content): Merge conflict in login.html
+Automatic merge failed; fix conflicts and then commit the result.
+\n--- CONFLICT MARKERS (expected during the demo) ---
+<<<<<<< HEAD
+<h1>University Document Sharing Platform</h1>
+<p>Login page skeleton</p>
+=======
+<h1>University Student Portal — Secure Login</h1>
+>>>>>>> feature/login-validation
+$ git add login.html
+$ git commit -m Resolve login heading merge conflict
+[main 9b99e4e] Resolve login heading merge conflict
+\n--- FINAL COMMIT GRAPH ---
+$ git log --graph --oneline --all --decorate
+*   9b99e4e (HEAD -> main) Resolve login heading merge conflict
+|\  
+| * a5b1cf0 (feature/login-validation) Update login heading for validation branch
+* |   a2d8a0d Merge feature/login-page
+|\ \  
+| |/  
+|/|   
+| * 51b7f95 (feature/login-page) Add login page skeleton
+|/  
+* 8c242bb Initial project files
+\nDemo complete. This is local Git evidence only; no GitHub PRs were created.
